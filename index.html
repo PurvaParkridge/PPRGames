@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Dynamic Orange & Charcoal -->
+    <!-- Chosen Palette: Dynamic Orange & Charcoal (Dark Mode) -->
     <!-- Application Structure Plan: A single-page dashboard with vertical navigation. The structure includes: Overview, Format (with a visual knockout bracket), Team Composition, an interactive Schedule, Scoring, and a dynamic Leaderboard. This tabbed, thematic approach was chosen for its intuitive user flow, allowing participants to quickly find specific information without scrolling through a long document. It turns a static plan into a functional, easy-to-navigate event hub. -->
     <!-- Visualization & Content Choices: 
         - Overview: Goal: Inform. Method: Text blocks. Interaction: None. Justification: Provides essential context.
@@ -21,8 +21,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #F8F9FA;
-            color: #343A40;
+            background-color: #1A1A1A; /* Dark Mode Background */
+            color: #EAEAEA; /* Light Text */
             background-image: url('https://raw.githubusercontent.com/ankurmalik1978/PPR_Games/main/Screenshot_20250920-115343.png');
             background-size: cover;
             background-position: center;
@@ -31,9 +31,10 @@
         }
         .nav-link {
             transition: all 0.3s ease;
+            color: #EAEAEA;
         }
         .nav-link.active {
-            background-color: #FD7E14;
+            background-color: #FD7E14; /* Orange Accent */
             color: #FFFFFF;
             font-weight: 600;
         }
@@ -62,32 +63,11 @@
                 height: 500px;
             }
         }
-        .bracket {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            align-items: center;
-        }
-        .round {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            flex-grow: 1;
-            padding: 20px 0;
-            position: relative;
-        }
-        .match {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
         .team {
             padding: 10px;
-            border: 1px solid #ddd;
-            background: #fff;
+            border: 1px solid #555; /* Dark Border */
+            background: #333; /* Dark Team Background */
+            color: #EAEAEA;
             border-radius: 4px;
             margin: 5px;
             text-align: center;
@@ -99,28 +79,30 @@
             border-top: 2px solid #FD7E14;
             top: 50%;
         }
-        .bracket-vertical-line {
-            position: absolute;
-            height: 100%;
-            width: 2px;
+        .bracket-vertical-line, .bracket-horizontal-line, .bracket-connector-line {
             background: #FD7E14;
-            left: 50%;
-            transform: translateX(-50%);
         }
-        .bracket-horizontal-line {
-            position: absolute;
+        .match {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .round {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            height: 2px;
-            background: #FD7E14;
-            top: 50%;
+            flex-grow: 1;
+            padding: 20px 0;
+            position: relative;
         }
-        .bracket-connector-line {
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: #FD7E14;
-            top: 50%;
-            right: -20px;
+        .bracket {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
         }
     </style>
 </head>
@@ -132,10 +114,10 @@
             <p class="text-lg text-[#FD7E14] mt-2">Guide to the knockout challenge</p>
         </header>
 
-        <main class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6">
+        <main class="bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6">
             <div class="flex flex-col md:flex-row gap-6">
                 <aside class="w-full md:w-1/4">
-                    <nav id="navigation" class="flex flex-col justify-start bg-[#F1F3F5] p-3 rounded-lg shadow-md">
+                    <nav id="navigation" class="flex flex-col justify-start bg-[#2C2C2C] p-3 rounded-lg shadow-md">
                         <button data-target="overview" class="nav-link active text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">📋 Overview</button>
                         <button data-target="format" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">⚔️ Format</button>
                         <button data-target="teams" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">👥 Teams</button>
@@ -148,7 +130,7 @@
 
                 <div class="w-full md:w-3/4 min-h-[400px]">
                     <section id="overview" class="content-section active">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Tournament Overview</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Tournament Overview</h2>
                         <p class="mb-4">Welcome to the official guide for our multi-sport tournament in PPR. This event features Tennis, Cricket, Football, Badminton, and TT. Each sport is structured as a high-stakes, single-elimination knockout tournament.</p>
                         <p>While individual sports are knockout-based, the overall tournament champion is determined by a cumulative points system. Teams earn points for wins in the various events. Please see Format for more details</p>
                         <br>
@@ -157,9 +139,9 @@
 
 
                     <section id="format" class="content-section">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Knockout Format Explained</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Knockout Format Explained</h2>
                         <p class="mb-4">Overall event is team based. All teams need to follow the criteria mentioned below:  
-                            <ul class="list-style-type: square;">
+                            <ul class="list-style-type: square; ml-6 space-y-2">
                                 <li>1. All blocks (A, B, C, D and E) need to come up with their teams</li> 
                                 <li>2. All teams should come up with a "team name" and should select their captain</li>
                                 <li>3. All team members need to be from the same block</li>
@@ -178,59 +160,19 @@
                         <br>
 
                         <p class="mb-4">More details to follow ...</p>
-<!--
-                        <p class="mb-4">Since we have 5 teams, a perfect knockout bracket isn't possible. Therefore, we will have a random draw to select one team that will get a bye to the semi-final. The remaining four teams will play in the first round. The winners of the two first-round matches will play each other in one semi-final, and the team with the bye will play in the other semi-final. The winners of the semi-finals will meet in the final.</p>
-                        <h3 class="font-semibold text-xl mb-4 text-[#A0522D]">Example Bracket for 5 Teams</h3>
-                        <div class="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-8 p-4 bg-[#FFF8E1] rounded-lg">
-                            <div class="flex flex-col items-center w-1/2 md:w-1/4">
-                                <h3 class="font-semibold mb-4 text-sm md:text-base">Round 1</h3>
-                                <div class="flex flex-col w-full relative">
-                                    <div class="match flex-col relative w-full mb-4">
-                                        <div class="team w-full">Team 1</div>
-                                        <div class="team w-full">Team 2</div>
-                                    </div>
-                                    <div class="match flex-col relative w-full">
-                                        <div class="team w-full">Team 3</div>
-                                        <div class="team w-full">Team 4</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col items-center w-full md:w-1/4">
-                                <h3 class="font-semibold mb-4 text-sm md:text-base">Semi-Final</h3>
-                                <div class="flex flex-col w-full relative">
-                                    <div class="match flex-col relative w-full mb-4">
-                                        <div class="team w-full">Winner (T1 vs T2)</div>
-                                        <div class="team w-full">Team 5 (Bye)</div>
-                                    </div>
-                                    <div class="match flex-col relative w-full">
-                                        <div class="team w-full">Winner (T3 vs T4)</div>
-                                        <div class="team w-full font-bold bg-[#c7a17a] text-white">🏆 Winner from 1st Semi-Final</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col items-center w-full md:w-1/4">
-                                <h3 class="font-semibold mb-4 text-sm md:text-base">Final</h3>
-                                <div class="flex flex-col w-full relative">
-                                    <div class="match flex-col relative w-full mb-4">
-                                        <div class="team w-full font-bold bg-[#c7a17a] text-white">🏆 Winner</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
--->
                     </section>
 
                     <section id="teams" class="content-section">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Team List</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Team List</h2>
                         <p class="mb-6">This section provides a list of all participating teams, along with their assigned captain. The team member lists will be updated as rosters are finalized.</p>
 
                         <div class="space-y-8">
                             <!-- Team Block A -->
-                            <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block A</h3>
                                 <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
-                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
                                     <li>[Member 2]</li>
                                     <li>[Member 3]</li>
@@ -240,11 +182,11 @@
                             </div>
 
                             <!-- Team Block B -->
-                            <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block B</h3>
                                 <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
-                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
                                     <li>[Member 2]</li>
                                     <li>[Member 3]</li>
@@ -254,11 +196,11 @@
                             </div>
 
                             <!-- Team Block C -->
-                            <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block C</h3>
                                 <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
-                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
                                     <li>[Member 2]</li>
                                     <li>[Member 3]</li>
@@ -268,11 +210,11 @@
                             </div>
 
                             <!-- Team Block D -->
-                            <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block D</h3>
                                 <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
-                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
                                     <li>[Member 2]</li>
                                     <li>[Member 3]</li>
@@ -282,11 +224,11 @@
                             </div>
                             
                             <!-- Team Block E -->
-                            <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block E</h3>
                                 <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
-                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
                                     <li>[Member 2]</li>
                                     <li>[Member 3]</li>
@@ -299,42 +241,42 @@
                     </section>
 
                     <section id="schedule" class="content-section">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Event Schedule</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Event Schedule</h2>
                         <p class="mb-6">The tournament spans multiple weekends. Here is the high-level schedule for each sport, followed by a detailed list of all upcoming matches.</p>
                         
                         <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">High-Level Schedule</h3>
                         <div class="overflow-x-auto mb-8">
                             <table class="w-full text-left border-collapse">
-                                <thead class="bg-white">
+                                <thead class="bg-gray-700">
                                     <tr>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Event</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Date</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Event</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white/50">
-                                        <td class="p-3 border-b border-gray-200">Badminton / TT</td>
-                                        <td class="p-3 border-b border-gray-200">October 11 - 12, 2025</td>
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Badminton / TT</td>
+                                        <td class="p-3 border-b border-gray-600">October 11 - 12, 2025</td>
                                     </tr>
-                                    <tr class="bg-white/50">
-                                        <td class="p-3 border-b border-gray-200">Football</td>
-                                        <td class="p-3 border-b border-gray-200">October 18 - 19, 2025</td>
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Football</td>
+                                        <td class="p-3 border-b border-gray-600">October 18 - 19, 2025</td>
                                     </tr>
-                                    <tr class="bg-white/50">
-                                        <td class="p-3 border-b border-gray-200">Tennis</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Tennis</td>
+                                        <td class="p-3 border-b border-gray-600">TBD</td>
                                     </tr>
-                                    <tr class="bg-white/50">
-                                        <td class="p-3 border-b border-gray-200">Cricket</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Cricket</td>
+                                        <td class="p-3 border-b border-gray-600">TBD</td>
                                     </tr>
-                                    <tr class="bg-white/50">
-                                        <td class="p-3 border-b border-gray-200">Walking</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Walking</td>
+                                        <td class="p-3 border-b border-gray-600">TBD</td>
                                     </tr>
-                                    <tr class="bg-white/50">
-                                        <td class="p-3 border-b border-gray-200">Sports Day</td>
-                                        <td class="p-3 border-b border-gray-200">26th Jan</td>
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Sports Day</td>
+                                        <td class="p-3 border-b border-gray-600">26th Jan</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -343,32 +285,44 @@
                         <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Detailed Match Schedule</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
-                                <thead class="bg-white">
+                                <thead class="bg-gray-700">
                                     <tr>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Date</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Time</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Event</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Teams</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Date</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Time</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Event</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Teams</th>
                                     </tr>
                                 </thead>
                                 <tbody id="schedule-body">
                                     <tr>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">Cricket Match 1</td>
-                                        <td class="p-3 border-b border-gray-200"></td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Oct 5, 2024</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">10:00 AM</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Cricket Match 1</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Block A vs Block D</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Oct 5, 2024</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">11:30 AM</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Tennis Match 1</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Block B vs Block C</td>
                                     </tr>
                                     <tr>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
-                                        <td class="p-3 border-b border-gray-200">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Oct 6, 2024</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">10:00 AM</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Football Match 1</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">Block D vs Block B</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
+                                        <td class="p-3 border-b border-gray-600 bg-gray-800">TBD</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -376,22 +330,22 @@
                     </section>
 
                     <section id="scoring" class="content-section">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Scoring System</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Scoring System</h2>
                         <p class="mb-4">Overall event is team based. A points system tracks team performance. Even in a knockout format, every match counts towards the overall championship. The team with the highest cumulative score across all the games wins the tournament. Hence, it is important to participate in all the games. Farther you go, more points you get</p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="p-4 bg-gray-700 rounded-lg shadow-sm">
                                 <h3 class="font-semibold text-lg">🏅 Game Winner</h3>
                                 <p>Receives **2 points** for winning their knockout match.</p>
                             </div>
-                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="p-4 bg-gray-700 rounded-lg shadow-sm">
                                 <h3 class="font-semibold text-lg">🤝 Draw/Tie</h3>
                                 <p>Not applicable since all games are knockout</p>
                             </div>
-                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="p-4 bg-gray-700 rounded-lg shadow-sm">
                                 <h3 class="font-semibold text-lg">🏃‍♂️ Loss</h3>
                                 <p>Team receives **0 points** for participation in their match.</p>
                             </div>
-                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="p-4 bg-gray-700 rounded-lg shadow-sm">
                                 <h3 class="font-semibold text-lg">🚶 Walking Event</h3>
                                 <p>This is an individual event and is awarded on the basis of longest covered distance.</p>
                             </div>
@@ -399,7 +353,7 @@
                     </section>
 
                     <section id="leaderboard" class="content-section">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Live Leaderboard</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Live Leaderboard</h2>
                         <p class="mb-4">This page features multiple leaderboards to track standings across all events. From the overall team championship to the individual walking challenges, you can see all the current results here.</p>
                         <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard "Overall Team Championship"</h3>
                         <div class="chart-container">
@@ -409,16 +363,16 @@
                         <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Walking Event (Age group 45 to 55)</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
-                                <thead class="bg-white">
+                                <thead class="bg-gray-700">
                                     <tr>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Rank</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Name</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Distance (steps)</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Rank</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Name</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Distance (steps)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white/50">
-                                        <td colspan="3" class="p-3 text-center text-gray-500">Details to follow...</td>
+                                    <tr class="bg-gray-800">
+                                        <td colspan="3" class="p-3 text-center text-gray-400">Details to follow...</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -427,16 +381,16 @@
                         <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Walking Event (Age group > 55)</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
-                                <thead class="bg-white">
+                                <thead class="bg-gray-700">
                                     <tr>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Rank</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Name</th>
-                                        <th class="p-3 border-b-2 border-[#FD7E14]">Distance (steps)</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Rank</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Name</th>
+                                        <th class="p-3 border-b-2 border-[#FD7E14] text-white">Distance (steps)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white/50">
-                                        <td colspan="3" class="p-3 text-center text-gray-500">Details to follow...</td>
+                                    <tr class="bg-gray-800">
+                                        <td colspan="3" class="p-3 text-center text-gray-400">Details to follow...</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -444,11 +398,11 @@
                     </section>
                     
                     <section id="news" class="content-section">
-                        <h2 class="text-2xl font-bold mb-4 text-[#343A40]">Latest News</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Latest News</h2>
                         <div class="space-y-6">
-                            <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="p-4 bg-gray-700 rounded-lg shadow-sm">
                                 <h3 class="text-lg font-semibold text-[#FD7E14]">Team Formation</h3>
-                                <p class="text-sm text-gray-500 mb-2">September 20, 2025 - 8:30 PM</p>
+                                <p class="text-sm text-gray-400 mb-2">September 20, 2025 - 8:30 PM</p>
                                 <p>All blocks are requested to self-organise, form a team and select their captains. Please check Format for more details</p>
                             </div>
                         </div>
@@ -512,13 +466,20 @@
                     maintainAspectRatio: false,
                     indexAxis: 'y',
                     scales: {
-                        x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }},
-                        y: { grid: { display: false }}
+                        x: { 
+                            beginAtZero: true, 
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#EAEAEA' }
+                        },
+                        y: { 
+                            grid: { display: false },
+                            ticks: { color: '#EAEAEA' }
+                        }
                     },
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            backgroundColor: '#343A40',
+                            backgroundColor: '#FD7E14', // Orange background for tooltip
                             titleFont: { size: 16 },
                             bodyFont: { size: 14 },
                             padding: 12,
