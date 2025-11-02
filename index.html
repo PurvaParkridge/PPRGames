@@ -104,6 +104,13 @@
             width: 100%;
             align-items: center;
         }
+        .details-toggle {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .details-toggle:hover {
+            color: #FD7E14;
+        }
     </style>
 </head>
 <body>
@@ -118,18 +125,18 @@
             <div class="flex flex-col md:flex-row gap-6">
                 <aside class="w-full md:w-1/4">
                     <nav id="navigation" class="flex flex-col justify-start bg-[#2C2C2C] p-3 rounded-lg shadow-md">
-                        <button data-target="overview" class="nav-link active text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">📋 Overview</button>
-                        <button data-target="format" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">⚔️ Format</button>
-                        <button data-target="teams" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">👥 Teams</button>
-                        <button data-target="schedule" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">🗓️ Schedule</button>
-                        <button data-target="scoring" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">🏆 Scoring</button>
-                        <button data-target="leaderboard" class="nav-link text-left p-3 rounded-md w-full text-sm md:text-base">📊 Leaderboard</button>
-                        <button data-target="news" class="nav-link text-left p-3 rounded-md w-full text-sm md:text-base">📢 Latest News</button>
+                        <a href="#overview" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">📋 Overview</a>
+                        <a href="#format" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">⚔️ Format</a>
+                        <a href="#teams" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">👥 Teams</a>
+                        <a href="#schedule" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">🗓️ Schedule</a>
+                        <a href="#scoring" class="nav-link text-left p-3 rounded-md w-full mb-0 md:mb-2 text-sm md:text-base">🏆 Scoring</a>
+                        <a href="#leaderboard" class="nav-link text-left p-3 rounded-md w-full text-sm md:text-base">📊 Leaderboard</a>
+                        <a href="#news" class="nav-link text-left p-3 rounded-md w-full text-sm md:text-base">📢 Latest News</a>
                     </nav>
                 </aside>
 
                 <div class="w-full md:w-3/4 min-h-[400px]">
-                    <section id="overview" class="content-section active">
+                    <section id="overview" class="content-section">
                         <h2 class="text-2xl font-bold mb-4 text-white">Tournament Overview</h2>
                         <p class="mb-4">Welcome to the official guide for our multi-sport tournament in PPR. This event features Tennis, Cricket, Football, Badminton, and TT. Each sport is structured as a high-stakes, single-elimination knockout tournament.</p>
                         <p>While individual sports are knockout-based, the overall tournament champion is determined by a cumulative points system. Teams earn points for wins in the various events. Please see Format for more details</p>
@@ -142,12 +149,11 @@
                         <h2 class="text-2xl font-bold mb-4 text-white">Knockout Format Explained</h2>
                         <p class="mb-4">Overall event is team based. All teams need to follow the criteria mentioned below:  
                             <ul class="list-style-type: square; ml-6 space-y-2">
-                                <li>1. All blocks A (1-33), B (34-65), C (66-85 & 111-123), D (86-110) and E (124-149) need to come up with their teams</li> 
+                                <li>1. All blocks (A, B, C, D and E) need to come up with their teams</li> 
                                 <li>2. All teams should come up with a "team name" and should select their captain</li>
                                 <li>3. All team members need to be from the same block</li>
-                                <li>4. We want good participation from all. Hence, for Football and Cricket, each team needs to have at least 10 members which should include at least 2 ladies and 2 kids < 16 years</li>
-                                <li>5. Try to have different team members for Cricket and Football so that we could have maximum participation</li>
-                                <li>6. All teams need to play all events. Hence, teams should be formed in a way so that all sports could be covered</li>
+                                <li>4. We want good participation from all. Hence, each team needs to have at least 10 members which should include at least 2 ladies and 2 kids < 16 years</li>
+                                <li>5. All teams need to play all events. Hence, teams should be formed in a way so that all sports could be covered</li>
                             </ul>
                         </p>
                         <br>
@@ -171,7 +177,7 @@
                             <!-- Team Block A -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block A</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> Joey (#23)</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -185,7 +191,7 @@
                             <!-- Team Block B -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block B</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> Sumanth (#48)</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -199,7 +205,7 @@
                             <!-- Team Block C -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block C</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> Neha (#75)</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -227,7 +233,7 @@
                             <!-- Team Block E -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block E</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> Ronnie (#132)</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -356,12 +362,146 @@
                     <section id="leaderboard" class="content-section">
                         <h2 class="text-2xl font-bold mb-4 text-white">Live Leaderboard</h2>
                         <p class="mb-4">This page features multiple leaderboards to track standings across all events. From the overall team championship to the individual walking challenges, you can see all the current results here.</p>
-                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard "Overall Team Championship"</h3>
-                        <div class="chart-container">
-                            <canvas id="leaderboardChart"></canvas>
-                        </div>
+                        
                         <hr class="my-6 border-[#FD7E14] opacity-50">
-                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Walking Event (Age group 45 to 55)</h3>
+                        
+                        <h3 class="font-bold text-xl mb-3 text-[#FD7E14]">🏸 Badminton Event Results</h3>
+                        
+                        <!-- Badminton Results Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            
+                            <!-- Men's Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Men's Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇Winner</span> Amit Saha</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈Runner-Up</span> Soulib Ghosh</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Men's Doubles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Men's Doubles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Rohan Potta & Joey Partap</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Soulib Ghosh & Paul Saldanha</p>
+                                </div>
+                            </div>
+
+                            <!-- Women's Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2"><Mixed Doubles></h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Soulib Ghosh & Keerthana</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Amit Saha & Vaishali Menon</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Women's Doubles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Girls Teens Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Keerthana</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Aarna</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mixed Doubles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Boys Teens Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Shriyans Donthi</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Arnav Mittal</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Boys (Teens) Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Boys Teens Doubles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Ronit Salwan & Arnav Mittal</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Rayan Saha & Vihaan Malik</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Girls (Teens) Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Boys Group 1 Singles (advanced)</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Sethu</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Dev</p>
+                                    <p class="text-sm font-medium"><span class="text-amber-500">🥉 2nd Runner-Up:</span> Jojo</p>
+                                    <p class="text-sm font-medium"><span class="text-amber-500">Participants:</span> Akshit & Adi</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Kids Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Boys Group 2 Singles (beginners)</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Ayaansh</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Ethan</p>
+                                    <p class="text-sm font-medium"><span class="text-amber-500">🥉 2nd Runner-Up:</span> Kushu</p>
+                                    <p class="text-sm font-medium"><span class="text-amber-500">Participants:</span> Kenny & Atharva</p>
+                                </div>
+                            </div>
+
+                        </div> <!-- End of Badminton Results Grid -->
+
+                        <hr class="my-6 border-[#FD7E14] opacity-50">
+                        <h3 class="font-bold text-xl mb-3 text-[#FD7E14]">🏓 Table Tennis Event Results</h3>
+                        
+                        <!-- TT Results Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            
+                            <!-- Men's Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Tweens Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Ronit Salwan</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Shriyans Donthi</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Women's Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Women's Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Neha Mazumdar</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Cheryl Saldanha</p>
+                                </div>
+                            </div>
+
+                            <!-- Teen Singles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Teens Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Rayan Saha</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Vedant Dubey</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Teens Doubles -->
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Teens Doubles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Rayan Saha & Vihaan Malik</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Vedant Dubey & Ronit Salwan</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-lg text-white mb-2">Mens Singles</h4>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Amit Saha</p>
+                                    <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Ameen Haque</p>
+                                </div>
+                            </div>
+
+                        </div> <!-- End of TT Results Grid -->
+
+                        <hr class="my-6 border-[#FD7E14] opacity-50">
+                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Football Event</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead class="bg-gray-700">
@@ -379,7 +519,7 @@
                             </table>
                         </div>
                         <hr class="my-6 border-[#FD7E14] opacity-50">
-                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Walking Event (Age group > 55)</h3>
+                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Cricket Event</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead class="bg-gray-700">
@@ -416,11 +556,11 @@
                                 <p class="text-sm text-gray-400 mb-2">October 12, 2025</p>
                                 <p>Hi everyone,<br>
                                 We have captains for almost all the blocks. Please find details below: <br>
-                                A (1-33) : Joey (#23)<br>
-                                B (34-65) : Sumanth (#48)<br>
-                                C (66-85 & 111-123) : Neha (#75)<br>
+                                A (1-33) : [Name]<br>
+                                B (34-65) : [Name]<br>
+                                C (66-85 & 111-123) : [Name]<br>
                                 D (86-110) : <br>
-                                E (124-149) : Ronnie (#132)<br>
+                                E (124-149) : [Name]<br>
                                 <br>
                                 We don't yet have a captain for block D. Please let us know if anyone is interested. Thanks!!<br>
                                 </p>
@@ -457,82 +597,57 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        function updateContent(hash) {
+            const targetId = hash.substring(1) || 'overview';
             const navLinks = document.querySelectorAll('.nav-link');
             const contentSections = document.querySelectorAll('.content-section');
 
+            navLinks.forEach(nav => {
+                const target = nav.getAttribute('href').substring(1);
+                nav.classList.remove('active');
+                if (target === targetId) {
+                    nav.classList.add('active');
+                }
+            });
+
+            contentSections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === targetId) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Handle initial load based on hash
+            updateContent(window.location.hash);
+
+            // Handle link clicks
             navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    const targetId = link.dataset.target;
-
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    link.classList.add('active');
-
-                    contentSections.forEach(section => {
-                        section.classList.remove('active');
-                        if (section.id === targetId) {
-                            section.classList.add('active');
-                        }
-                    });
+                link.addEventListener('click', (e) => {
+                    // Prevent default anchor jump, allowing JS to control the view
+                    e.preventDefault(); 
+                    const hash = link.getAttribute('href');
+                    
+                    // Update the URL hash and content
+                    window.history.pushState(null, null, hash);
+                    updateContent(hash);
                 });
             });
 
-            const leaderboardCtx = document.getElementById('leaderboardChart').getContext('2d');
-            const leaderboardData = {
-                labels: ['Block A', 'Block B', 'Block C', 'Block D', 'Block E'],
-                datasets: [{
-                    label: 'Team Points',
-                    data: [28, 42, 18, 35, 30],
-                    backgroundColor: [
-                        'rgba(253, 126, 20, 0.6)',
-                        'rgba(52, 58, 64, 0.6)',
-                        'rgba(253, 126, 20, 0.8)',
-                        'rgba(52, 58, 64, 0.8)',
-                        'rgba(253, 126, 20, 0.4)'
-                    ],
-                    borderColor: [
-                        '#FD7E14',
-                        '#343A40',
-                        '#FD7E14',
-                        '#343A40',
-                        '#FD7E14'
-                    ],
-                    borderWidth: 2,
-                    borderRadius: 5,
-                }]
-            };
-
-            const leaderboardChart = new Chart(leaderboardCtx, {
-                type: 'bar',
-                data: leaderboardData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    scales: {
-                        x: { 
-                            beginAtZero: true, 
-                            grid: { color: 'rgba(255,255,255,0.1)' },
-                            ticks: { color: '#EAEAEA' }
-                        },
-                        y: { 
-                            grid: { display: false },
-                            ticks: { color: '#EAEAEA' }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#FD7E14', // Orange background for tooltip
-                            titleFont: { size: 16 },
-                            bodyFont: { size: 14 },
-                            padding: 12,
-                            cornerRadius: 6,
-                            displayColors: false,
-                        }
-                    }
-                }
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', () => {
+                updateContent(window.location.hash);
             });
+            
+            // If no hash is present on load, manually activate overview
+            if (!window.location.hash) {
+                document.querySelector('.nav-link[href="#overview"]').classList.add('active');
+                document.getElementById('overview').classList.add('active');
+            }
+
         });
     </script>
 </body>
