@@ -177,7 +177,7 @@
                             <!-- Team Block A -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block A</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> Joey</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -191,7 +191,7 @@
                             <!-- Team Block B -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block B</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> Sumanth</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -205,7 +205,7 @@
                             <!-- Team Block C -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block C</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> Neha</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -219,7 +219,7 @@
                             <!-- Team Block D -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block D</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> Soulib Ghosh</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -233,7 +233,7 @@
                             <!-- Team Block E -->
                             <div class="bg-gray-700 p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-semibold text-[#FD7E14] mb-2">Block E</h3>
-                                <p class="mb-4"><span class="font-medium">Captain:</span> [Name]</p>
+                                <p class="mb-4"><span class="font-medium">Captain:</span> Ronnie</p>
                                 <p class="font-medium mb-2">Team Members:</p>
                                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                                     <li>[Member 1]</li>
@@ -266,11 +266,15 @@
                                         <td class="p-3 border-b border-gray-600">October 25 - 26, 2025</td>
                                     </tr>
                                     <tr class="bg-gray-800">
-                                        <td class="p-3 border-b border-gray-600">Football</td>
-                                        <td class="p-3 border-b border-gray-600">November 01 - 02, 2025</td>
+                                        <td class="p-3 border-b border-gray-600">Pool</td>
+                                        <td class="p-3 border-b border-gray-600">November 08 - 09, 2025</td>
                                     </tr>
                                     <tr class="bg-gray-800">
                                         <td class="p-3 border-b border-gray-600">Cricket</td>
+                                        <td class="p-3 border-b border-gray-600">November 29 - 30, 2025</td>
+                                    </tr>                                    
+                                    <tr class="bg-gray-800">
+                                        <td class="p-3 border-b border-gray-600">Football</td>
                                         <td class="p-3 border-b border-gray-600">November 29 - 30, 2025</td>
                                     </tr>
                                     <tr class="bg-gray-800">
@@ -363,8 +367,17 @@
                         <h2 class="text-2xl font-bold mb-4 text-white">Live Leaderboard</h2>
                         <p class="mb-4">This page features multiple leaderboards to track standings across all events. From the overall team championship to the individual walking challenges, you can see all the current results here.</p>
                         
+                        <!-- Overall Team Leaderboard - Chart Added -->
+                        <h3 class="font-semibold text-xl mb-3 text-[#FD7E14]">🏆 Overall Block Points</h3>
+                        <p class="mb-4 text-gray-400">Track the cumulative points earned by each Block across all team events to determine the overall tournament champion.</p>
+                        <p class="mb-4 text-gray-400">To be updated after Cricket/Football events</p>
+                        <div id="block-data" data-labels='["Block A", "Block B", "Block C", "Block D", "Block E"]' data-points='[0, 0, 0, 0, 0]' class="hidden"></div>
+                        <div class="chart-container bg-gray-700/80 p-4 rounded-lg shadow-lg mb-6">
+                            <canvas id="leaderboardChart"></canvas>
+                        </div>
+
                         <hr class="my-6 border-[#FD7E14] opacity-50">
-                        
+                                               
                         <h3 class="font-bold text-xl mb-3 text-[#FD7E14]">🏸 Badminton Event Results</h3>
                         
                         <!-- Badminton Results Grid -->
@@ -390,7 +403,7 @@
 
                             <!-- Women's Singles -->
                             <div class="bg-gray-700 p-4 rounded-lg shadow-md">
-                                <h4 class="font-semibold text-lg text-white mb-2"><Mixed Doubles></h4>
+                                <h4 class="font-semibold text-lg text-white mb-2">Mixed Doubles</h4>
                                 <div class="space-y-2">
                                     <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Soulib Ghosh & Keerthana</p>
                                     <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Amit Saha & Vaishali Menon</p>
@@ -403,6 +416,7 @@
                                 <div class="space-y-2">
                                     <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Keerthana</p>
                                     <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Aarna</p>
+                                    <p class="text-sm font-medium"><span class="text-amber-500">🥉 2nd Runner-Up:</span> Aarna</p>
                                 </div>
                             </div>
                             
@@ -431,7 +445,7 @@
                                     <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Sethu</p>
                                     <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Dev</p>
                                     <p class="text-sm font-medium"><span class="text-amber-500">🥉 2nd Runner-Up:</span> Jojo</p>
-                                    <p class="text-sm font-medium"><span class="text-amber-500">Participants:</span> Akshit & Adi</p>
+                                    <p class="text-sm font-medium">Participants: Adi & Akshit</p>
                                 </div>
                             </div>
                             
@@ -442,7 +456,7 @@
                                     <p class="text-sm font-medium"><span class="text-yellow-400">🥇 Winner:</span> Ayaansh</p>
                                     <p class="text-sm font-medium"><span class="text-gray-400">🥈 Runner-Up:</span> Ethan</p>
                                     <p class="text-sm font-medium"><span class="text-amber-500">🥉 2nd Runner-Up:</span> Kushu</p>
-                                    <p class="text-sm font-medium"><span class="text-amber-500">Participants:</span> Kenny & Atharva</p>
+                                    <p class="text-sm font-medium">Participants: Kenny & Atharva</p>
                                 </div>
                             </div>
 
@@ -501,7 +515,7 @@
                         </div> <!-- End of TT Results Grid -->
 
                         <hr class="my-6 border-[#FD7E14] opacity-50">
-                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Football Event</h3>
+                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Walking Event (Age group 45 to 55)</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead class="bg-gray-700">
@@ -519,7 +533,7 @@
                             </table>
                         </div>
                         <hr class="my-6 border-[#FD7E14] opacity-50">
-                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Cricket Event</h3>
+                        <h3 class="font-semibold text-xl mb-4 text-[#FD7E14]">Leaderboard Walking Event (Age group > 55)</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead class="bg-gray-700">
@@ -623,6 +637,69 @@
             });
         }
 
+        function initLeaderboardChart() {
+            const dataElement = document.getElementById('block-data');
+            const labels = JSON.parse(dataElement.getAttribute('data-labels'));
+            const points = JSON.parse(dataElement.getAttribute('data-points'));
+            const leaderboardCtx = document.getElementById('leaderboardChart').getContext('2d');
+
+            const leaderboardData = {
+                labels: labels,
+                datasets: [{
+                    label: 'Team Points',
+                    data: points,
+                    backgroundColor: [
+                        'rgba(253, 126, 20, 0.8)', // Orange
+                        'rgba(52, 58, 64, 0.8)', // Dark Gray
+                        'rgba(253, 126, 20, 0.5)', 
+                        'rgba(52, 58, 64, 0.5)',
+                        'rgba(253, 126, 20, 0.3)'
+                    ],
+                    borderColor: [
+                        '#FD7E14',
+                        '#343A40',
+                        '#FD7E14',
+                        '#343A40',
+                        '#FD7E14'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 5,
+                }]
+            };
+
+            new Chart(leaderboardCtx, {
+                type: 'bar',
+                data: leaderboardData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: { 
+                            beginAtZero: true, 
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#EAEAEA' }
+                        },
+                        y: { 
+                            grid: { display: false },
+                            ticks: { color: '#EAEAEA' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#FD7E14', 
+                            titleFont: { size: 16 },
+                            bodyFont: { size: 14 },
+                            padding: 12,
+                            cornerRadius: 6,
+                            displayColors: false,
+                        }
+                    }
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             
@@ -632,11 +709,8 @@
             // Handle link clicks
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    // Prevent default anchor jump, allowing JS to control the view
                     e.preventDefault(); 
                     const hash = link.getAttribute('href');
-                    
-                    // Update the URL hash and content
                     window.history.pushState(null, null, hash);
                     updateContent(hash);
                 });
@@ -653,6 +727,8 @@
                 document.getElementById('overview').classList.add('active');
             }
 
+            // Initialize the chart with data from the hidden div
+            initLeaderboardChart();
         });
     </script>
 </body>
